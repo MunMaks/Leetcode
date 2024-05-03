@@ -10,4 +10,4 @@ Je reste ouvert à toute suggestion de votre part.
 
 
 # Auteur
-- MUNAIT Maks
+- MUNAITPASOV M.
