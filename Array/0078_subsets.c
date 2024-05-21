@@ -16,8 +16,9 @@ Input: nums = [0]
 Output: [[],[0]]
 */
 
-void backtrack(int* nums, int numsSize, int** res, int* returnSize,
-               int** returnColumnSizes, int* tmp, int tarSize, int cidx, int start) {
+void backtrack(int *nums, int numsSize, int **res, int *returnSize,
+               int **returnColumnSizes, int *tmp, int tarSize, int cidx, int start) {
+    int i = 0;
     if (cidx == tarSize) {
         (*returnColumnSizes)[(*returnSize)] = cidx;
         res[(*returnSize)] = malloc(cidx * sizeof(*(res[(*returnSize)])) );
@@ -30,7 +31,7 @@ void backtrack(int* nums, int numsSize, int** res, int* returnSize,
         }
         (*returnSize)++;
     } else {
-        for (int i = start; i < numsSize; i++) {
+        for (i = start; i < numsSize; i++) {
             tmp[cidx] = nums[i];
             backtrack(nums, numsSize, res, returnSize,
                       returnColumnSizes, tmp, tarSize, cidx + 1, i + 1);
@@ -44,7 +45,7 @@ void backtrack(int* nums, int numsSize, int** res, int* returnSize,
  * The sizes of the arrays are returned as *returnColumnSizes array.
  * Note: Both returned array and *columnSizes array must be malloced, assume caller calls free().
  */
-int** subsets(int* nums, int numsSize, int* returnSize, int** returnColumnSizes) {
+int **subsets(int *nums, int numsSize, int *returnSize, int **returnColumnSizes) {
     int size = pow(2, numsSize), i = 0;
     *returnSize = 0;
     *returnColumnSizes = malloc(size * sizeof(*returnColumnSizes));
